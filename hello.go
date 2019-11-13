@@ -1,9 +1,10 @@
 package main
 
 import (
-	"hello/app"
+	"fmt"
 )
 
 func main() {
-	app.Start()
+	fmt.Println("Start Go application!!")
+	//app.Start()
 }
