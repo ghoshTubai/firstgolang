@@ -1,31 +1,21 @@
-
-    node{
-    // Install the desired Go version
-    def root = tool name: 'Go-Tool', type: 'go'
+pipeline {
+    agent any
+    tools {
+        go 'Go-Tool'
+    }
+    environment {
+        GO143MODULE = 'on'
+    }
     stages {
-        stage ('Checkout Stage') {
-
+        stage('Compile') {
             steps {
-                withEnv(["GOROOT=${root}", "PATH+GO=${root}/bin"]) {
-                    git "https://github.com/ghoshTubai/firstgolang.git"
-                }
+                sh 'go build'
             }
         }
-        stage ('Testing Stage') {
+        stage('Test') {
             steps {
-               withEnv(["GOROOT=${root}", "PATH+GO=${root}/bin"]) {
-                    sh 'go test .'
-                }
-            }
-        }
-
-
-        stage ('Deployment Stage') {
-            steps {
-                withEnv(["GOROOT=${root}", "PATH+GO=${root}/bin"]) {
-                    sh 'go install .'
-                }
+                sh 'go test .'
             }
         }
     }
-    }
+}
