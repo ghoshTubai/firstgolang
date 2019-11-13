@@ -1,10 +1,12 @@
 package app
 
 import (
+	"fmt"
 	"github.com/gorilla/mux"
 )
 
 func Start (){
+	fmt.Println("starting server!!")
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/hello",greetings).Methods("GET")
 	router.HandleFunc("/hello",greetings).Methods("POST")
