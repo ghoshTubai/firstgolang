@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    node{
     // Install the desired Go version
     def root = tool name: 'Go-Tool', type: 'go'
     stages {
@@ -27,5 +28,6 @@ pipeline {
                 }
             }
         }
+    }
     }
 }
