@@ -5,6 +5,6 @@ import (
 )
 
 func main() {
-	fmt.Println("Start Go application!!")
+	fmt.Println("Start Go application!!!!")
 	//app.Start()
 }
