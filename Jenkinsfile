@@ -22,7 +22,7 @@ pipeline {
 
         stage ('Deployment Stage') {
             steps {
-                withEnv(["GOROOT=${root}", "PATH+GO=${root}/bin"])) {
+                withEnv(["GOROOT=${root}", "PATH+GO=${root}/bin"]) {
                     sh 'go install .'
                 }
             }
